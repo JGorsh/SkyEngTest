@@ -35,5 +35,5 @@ public class Mailing {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="postOffice_id")
-    private PostOffice postOfficeList;
+    private PostOffice postOffice;
 }

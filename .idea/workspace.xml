@@ -4,39 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mapping/MailingMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mapping/PostOfficeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Mailing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailingStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/MailingDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/PostOfficeDto.java" afterDir="false" />
+    <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/CommentMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/IssueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mapping/IssueMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/ProjectMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Issue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/FieldNameFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/PersonDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/ProjectDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/IssueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/IssueRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/PersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/CommentServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/CommentServiceRdb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/FilterSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FilterSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateMailingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateMailingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/MailingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/MailingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/UpdateMailingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/UpdateMailingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/CommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/IssueRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/IssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/IssueService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/IssueServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/IssueServiceRdb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -112,11 +93,28 @@
       <option name="project" value="LOCAL" />
       <updated>1692180050735</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692343152721</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692343152721</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692354532892</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692354532892</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>

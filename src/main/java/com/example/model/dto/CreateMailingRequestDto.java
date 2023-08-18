@@ -19,5 +19,5 @@ public class CreateMailingRequestDto {
     private String recipientAddress;
     private boolean isReceived;
     @NotNull
-    private PostOffice postOfficeList;
+    private PostOffice postOffice;
 }

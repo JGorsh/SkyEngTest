@@ -23,5 +23,5 @@ public class MailingDto {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
     private Instant receivedTime;
 
-    private PostOffice postOfficeList;
+    private PostOffice postOffice;
 }
