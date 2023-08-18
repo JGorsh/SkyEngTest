@@ -15,4 +15,7 @@ public class PostOffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String namePostOffice;
+    private String recipientAddress;
+
 }

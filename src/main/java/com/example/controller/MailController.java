@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.model.domain.Issue;
 import com.example.model.dto.*;
 import com.example.service.CommentService;
 import com.example.service.FilterSpecification;

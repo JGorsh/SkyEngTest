@@ -1,6 +1,5 @@
 package com.example.service;
 
-import com.example.mapping.CommentMapper;
 import com.example.model.dto.CommentDto;
 import com.example.repository.CommentRepository;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,6 @@
 package com.example.service;
 
 
-import com.example.model.domain.Issue;
 import com.example.model.dto.SearchIssueDto;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;

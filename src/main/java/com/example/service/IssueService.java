@@ -1,6 +1,5 @@
 package com.example.service;
 
-import com.example.model.domain.Issue;
 import com.example.model.dto.CreateIssueRequestDto;
 import com.example.model.dto.IssueDto;
 import com.example.model.dto.UpdateIssueRequestDto;
