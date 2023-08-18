@@ -2,26 +2,22 @@ package com.example.model.dto;
 
 import com.example.model.domain.MailType;
 import com.example.model.domain.PostOffice;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.time.Instant;
+import javax.validation.constraints.NotNull;
 
 @Data
-public class MailingDto {
+public class CreateMailingRequestDto {
 
-    private Long uuid;
+    @NotNull
     private MailType mailType;
+    @NotNull
     private String mailIndex;
+    @NotNull
     private String recipientName;
+    @NotNull
     private String recipientAddress;
     private boolean isReceived;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant sentedTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant receivedTime;
-
+    @NotNull
     private PostOffice postOfficeList;
 }

@@ -1,28 +1,27 @@
-package com.example.model.domain;
+package com.example.model.dto;
 
+import com.example.model.domain.MailType;
+import com.example.model.domain.PostOffice;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.Data;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
-@Entity
-@Table
-@Getter
-@Setter
-public class Mailing {
+@Data
+public class UpdateMailingRequestDto {
 
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    @Column(name = "uuid", unique = true)
+    @NotNull
     private Long uuid;
+    @NotNull
     private MailType mailType;
+    @NotNull
     private String mailIndex;
+    @NotNull
     private String recipientName;
+    @NotNull
     private String recipientAddress;
+    @NotNull
     private boolean isReceived;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
@@ -31,9 +30,5 @@ public class Mailing {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
     private Instant receivedTime;
 
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="postOffice_id")
     private PostOffice postOfficeList;
 }

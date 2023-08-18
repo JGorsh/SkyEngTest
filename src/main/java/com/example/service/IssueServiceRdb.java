@@ -1,12 +1,6 @@
 package com.example.service;
 
-import com.example.mapping.IssueMapper;
-import com.example.model.dto.CreateIssueRequestDto;
-import com.example.model.dto.IssueDto;
-import com.example.model.dto.UpdateIssueRequestDto;
 import com.example.repository.IssueRepository;
-import com.example.repository.ProjectRepository;
-import com.example.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

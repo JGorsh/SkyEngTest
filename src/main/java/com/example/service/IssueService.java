@@ -1,8 +1,5 @@
 package com.example.service;
 
-import com.example.model.dto.CreateIssueRequestDto;
-import com.example.model.dto.IssueDto;
-import com.example.model.dto.UpdateIssueRequestDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.PathVariable;

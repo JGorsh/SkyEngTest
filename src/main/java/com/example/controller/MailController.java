@@ -1,8 +1,5 @@
 package com.example.controller;
 
-import com.example.model.dto.*;
-import com.example.service.CommentService;
-import com.example.service.FilterSpecification;
 import com.example.service.IssueService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
