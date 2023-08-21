@@ -12,12 +12,12 @@ public class CreateMailingRequestDto {
     @NotNull
     private MailType mailType;
     @NotNull
-    private String mailIndex;
+    private Integer mailIndex;
     @NotNull
     private String recipientName;
     @NotNull
     private String recipientAddress;
-    private boolean isReceived;
+//    private boolean isReceived;
     @NotNull
     private PostOffice postOffice;
 }

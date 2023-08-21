@@ -16,19 +16,19 @@ public class UpdateMailingRequestDto {
     @NotNull
     private MailType mailType;
     @NotNull
-    private String mailIndex;
+    private Integer mailIndex;
     @NotNull
     private String recipientName;
     @NotNull
     private String recipientAddress;
     @NotNull
-    private boolean isReceived;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant sentedTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant receivedTime;
+//    private boolean isReceived;
+//
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
+//    private Instant sentedTime;
+//
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
+//    private Instant receivedTime;
 
     private PostOffice postOffice;
 }

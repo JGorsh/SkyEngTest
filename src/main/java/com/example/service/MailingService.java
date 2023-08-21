@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import com.example.model.domain.Mailing;
 import com.example.model.dto.CreateMailingRequestDto;
 import com.example.model.dto.MailingDto;
 import com.example.model.dto.UpdateMailingRequestDto;
@@ -12,7 +13,7 @@ public interface MailingService {
 
     MailingDto getOne(@PathVariable Long id);
 
-    MailingDto createMailing(CreateMailingRequestDto mailing);
+    Mailing createMailing(Mailing mailing);
 
     MailingDto updateMailing(UpdateMailingRequestDto mailing);
 

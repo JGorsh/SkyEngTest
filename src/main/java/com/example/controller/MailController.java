@@ -1,24 +1,21 @@
 package com.example.controller;
 
+import com.example.model.domain.Mailing;
 import com.example.model.dto.CreateMailingRequestDto;
 import com.example.model.dto.MailingDto;
-import com.example.service.IssueService;
 import com.example.service.MailingService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @AllArgsConstructor
 @RestController
 public class MailController implements MailApi {
     @Override
-    public MailingDto createIssue(@RequestBody @Valid CreateMailingRequestDto mailingRequestDto) {
-        return mailingService.createMailing(mailingRequestDto);
+    public Mailing createMailing(@RequestBody @Valid Mailing mailing) {
+        return mailingService.createMailing(mailing);
     }
 
     private final MailingService mailingService;

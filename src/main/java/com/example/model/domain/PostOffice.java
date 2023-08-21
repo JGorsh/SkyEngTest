@@ -14,8 +14,13 @@ public class PostOffice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Integer mailIndex;
     private String namePostOffice;
     private String recipientAddress;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="mailing_id")
+    private Mailing mailing;
+
 
 }

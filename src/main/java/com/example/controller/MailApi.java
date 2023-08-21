@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.domain.Mailing;
 import com.example.model.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public interface MailApi {
 //    IssueDto getOne(@PathVariable Long id);
 //
     @PostMapping()
-    MailingDto createIssue(CreateMailingRequestDto mailingRequestDto);
+    Mailing createMailing(Mailing mailing);
 
 //    @PutMapping
 //    IssueDto updateIssue(UpdateIssueRequestDto issue);

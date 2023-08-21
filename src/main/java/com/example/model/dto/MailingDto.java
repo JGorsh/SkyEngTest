@@ -12,16 +12,16 @@ public class MailingDto {
 
     private Long uuid;
     private MailType mailType;
-    private String mailIndex;
+    private Integer mailIndex;
     private String recipientName;
     private String recipientAddress;
-    private boolean isReceived;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant sentedTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    private Instant receivedTime;
+//    private boolean isReceived;
+//
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
+//    private Instant sentedTime;
+//
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
+//    private Instant receivedTime;
 
     private PostOffice postOffice;
 }
