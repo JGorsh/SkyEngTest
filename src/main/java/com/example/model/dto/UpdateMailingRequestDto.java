@@ -7,22 +7,17 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
+import java.util.UUID;
 
 @Data
 public class UpdateMailingRequestDto {
 
     @NotNull
-    private Long uuid;
-    @NotNull
+    private UUID uuid;
     private MailType mailType;
-    @NotNull
     private Integer mailIndex;
-    @NotNull
     private String recipientName;
-    @NotNull
     private String recipientAddress;
-    @NotNull
-//    private boolean isReceived;
 //
 //    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
 //    private Instant sentedTime;

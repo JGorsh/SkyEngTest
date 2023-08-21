@@ -15,7 +15,6 @@ import java.util.UUID;
 public class CreateMailingRequestDto {
 
     private UUID uuid;
-
     private MailType mailType;
     private Integer mailIndex;
     private String recipientName;

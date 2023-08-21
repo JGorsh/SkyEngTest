@@ -13,7 +13,7 @@ public interface MailingService {
 
     MailingDto getOne(@PathVariable Long id);
 
-    Mailing createMailing(Mailing mailing);
+    MailingDto createMailing(CreateMailingRequestDto mailing);
 
     MailingDto updateMailing(UpdateMailingRequestDto mailing);
 

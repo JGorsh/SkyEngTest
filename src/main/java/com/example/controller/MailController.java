@@ -19,7 +19,7 @@ public class MailController implements MailApi {
     private final MailingService mailingService;
 
     @Override
-    public Mailing createMailing(@RequestBody @Valid Mailing mailing) {
+    public MailingDto createMailing(@RequestBody @Valid CreateMailingRequestDto mailing) {
         return mailingService.createMailing(mailing);
     }
 

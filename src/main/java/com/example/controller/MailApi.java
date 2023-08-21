@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import com.example.model.domain.Mailing;
+import com.example.model.dto.CreateMailingRequestDto;
+import com.example.model.dto.MailingDto;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +13,7 @@ import java.util.UUID;
 public interface MailApi {
 
     @PostMapping("registration")
-    Mailing createMailing(Mailing mailing);
+    MailingDto createMailing(CreateMailingRequestDto mailing);
 
 
     @PutMapping("arrival")

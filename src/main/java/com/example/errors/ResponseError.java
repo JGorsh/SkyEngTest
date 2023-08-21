@@ -1,8 +1,9 @@
 package com.example.errors;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
+@AllArgsConstructor
 public class ResponseError {
 
     private final String status;
