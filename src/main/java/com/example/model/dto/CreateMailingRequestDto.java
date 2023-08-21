@@ -31,8 +31,5 @@ public class CreateMailingRequestDto {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
     private Instant receivedTime;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="post_office_id")
     private PostOffice postOffice;
 }
