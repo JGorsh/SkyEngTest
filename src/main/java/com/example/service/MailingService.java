@@ -17,4 +17,5 @@ public interface MailingService {
 
     MailingDto updateMailing(UpdateMailingRequestDto mailing);
 
+
 }

@@ -18,22 +18,29 @@ import java.util.UUID;
 public class Mailing {
 
     @Id
-    @GeneratedValue(generator = "uuid-hibernate-generator")
-    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private UUID uuid;
+
     @Enumerated(EnumType.STRING)
     private MailType mailType;
     private Integer mailIndex;
     private String recipientName;
     private String recipientAddress;
+
     @Enumerated(EnumType.STRING)
     private MailingStatus mailingStatus;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
     @CreationTimestamp
+    private Instant registrationTime;
     private Instant sentedTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
     private Instant receivedTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="post_office_id")
+    private PostOffice postOffice;
+
+
 
 }
