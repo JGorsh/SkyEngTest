@@ -5,9 +5,7 @@ import com.example.model.domain.MailingStatus;
 import com.example.model.domain.PostOffice;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -22,7 +20,6 @@ public class CreateMailingRequestDto {
     private MailingStatus mailingStatus;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    @CreationTimestamp
     private Instant registrationTime;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")

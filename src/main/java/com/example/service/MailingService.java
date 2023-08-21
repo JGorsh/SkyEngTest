@@ -15,7 +15,7 @@ public interface MailingService {
 
     MailingDto createMailing(CreateMailingRequestDto mailing);
 
-    MailingDto updateMailing(UpdateMailingRequestDto mailing);
+    MailingDto updateArrivalMail(UpdateMailingRequestDto mailing);
 
 
 }
