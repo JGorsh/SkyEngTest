@@ -36,6 +36,7 @@ public class MailingServiceRdb implements MailingService{
                                 mailingDto.getPostOffice().getId())
                         ));
         var mailing = mapper.toEntity(mailingDto);
+        mailing.setUuid(UUID.randomUUID());
         mailing.setMailingStatus(MailingStatus.REGISTRATION);
         mailing.setPostOffice(postOffice);
         mailingRepository.save(mailing);
@@ -60,13 +61,19 @@ public class MailingServiceRdb implements MailingService{
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        var mail = mapper.dtoFromEntity(mailing);
-        mail.setPostOffice(postOffice);
-        mail.setMailingStatus(MailingStatus.SENT_BY_POST_OFFICE);
-        mail.setSentedTime(Instant.now());
-        mailing = mapper.toEntity(mail);
-        mailingRepository.save(mailing);
-        return mapper.fromEntity(mailing);
+        if(mailing.getMailingStatus().equals(MailingStatus.REGISTRATION) ||
+                mailing.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE)){
+            var mail = mapper.dtoFromEntity(mailing);
+            mail.setPostOffice(postOffice);
+            mail.setMailingStatus(MailingStatus.SENT_BY_POST_OFFICE);
+            mail.setSentedTime(Instant.now());
+            mailing = mapper.toEntity(mail);
+            mailingRepository.save(mailing);
+            return mapper.fromEntity(mailing);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
@@ -106,7 +113,8 @@ public class MailingServiceRdb implements MailingService{
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        if(mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId())){
+        if(mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId()) &&
+                mailing.getMailingStatus().equals(MailingStatus.SENT_BY_POST_OFFICE)){
             var mail = mapper.dtoFromEntity(mailing);
             mail.setPostOffice(postOffice);
             if(mail.getMailIndexRecipient().equals(mail.getPostOffice().getPostOfficeIndex())){
@@ -143,7 +151,8 @@ public class MailingServiceRdb implements MailingService{
                         ));
         var mail = mapper.dtoFromEntity(mailing);
 
-        if(mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE)){
+        if(mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE) &&
+        mailing.getPostOffice().getId().equals(mailingDto.getPostOffice().getId())){
             mail.setPostOffice(postOffice);
             mail.setMailingStatus(MailingStatus.DELIVERED_TO_THE_ADDRESSEE);
             mail.setReceivedTime(Instant.now());
