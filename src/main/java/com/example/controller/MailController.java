@@ -4,6 +4,7 @@ import com.example.model.dto.*;
 import com.example.service.MailingService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +43,7 @@ public class MailController implements MailApi {
     }
 
     @Override
-    public Page<MailingDto> getAllMailingByUUID(UUID uuid, Integer page, Integer size) {
-        return null;
+    public Page<MailingDto> getAllMailingByUUID(UUID uuid, Pageable pageable) {
+        return mailingService.getAllMailing(uuid, pageable);
     }
 }

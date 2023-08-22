@@ -10,13 +10,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/errors/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/errors/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailingStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/PostOfficeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/PostOfficeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/MailingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/MailingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692178809597</updated>
       <workItem from="1692700371166" duration="62000" />
-      <workItem from="1692700572886" duration="5647000" />
+      <workItem from="1692700572886" duration="6391000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -135,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692699780514</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add func">
+      <created>1692708146272</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692708146272</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

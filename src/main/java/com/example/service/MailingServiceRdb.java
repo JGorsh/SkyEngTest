@@ -9,6 +9,7 @@ import com.example.repository.PostOfficeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -69,8 +70,8 @@ public class MailingServiceRdb implements MailingService{
     }
 
     @Override
-    public Page<MailingDto> getAllMailing(UUID uuid, Integer page, Integer size) {
-        return mailingRepository.findAllByUuid(uuid, PageRequest.of(page, size)).map(mapper::fromEntity);
+    public Page<MailingDto> getAllMailing(UUID uuid, Pageable pageable) {
+        return mailingRepository.findAllByUuid(uuid, pageable).map(mapper::fromEntity);
     }
 
     @Override
