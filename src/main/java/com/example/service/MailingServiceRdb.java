@@ -8,7 +8,6 @@ import com.example.repository.MailingRepository;
 import com.example.repository.PostOfficeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +25,7 @@ public class MailingServiceRdb implements MailingService{
     private final MailingMapper mapper;
     private static final String POST_OFFICE_NOT_FOUND =  "Post office with id %s not found!";
     private static final String MAILING_NOT_FOUND = "Mailing with uuid %s not found!";
+
     private static final String INCORRECT_POST_OFFICE = "Invalid post office address entered";
 
     @Override
@@ -45,14 +45,7 @@ public class MailingServiceRdb implements MailingService{
 
     @Override
     public MailingDto createDepartureMailing(CreateDepartureMailRequestDto mailingDto) {
-        List<Mailing> mailingList = mailingRepository.findAllByUuid(mailingDto.getUuid());
-        Long mailingId = 0L;
-        for(Mailing m : mailingList){
-            if(m.getId()>mailingId){
-                mailingId=m.getId();
-            }
-        }
-        var mailing = mailingRepository.findById(mailingId)
+        var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
                 );
@@ -97,14 +90,7 @@ public class MailingServiceRdb implements MailingService{
 
     @Override
     public MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailingDto) {
-        List<Mailing> mailingList = mailingRepository.findAllByUuid(mailingDto.getUuid());
-        Long mailingId = 0L;
-        for(Mailing m : mailingList){
-            if(m.getId()>mailingId){
-                mailingId=m.getId();
-            }
-        }
-        var mailing = mailingRepository.findById(mailingId)
+        var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
                 );
@@ -133,14 +119,7 @@ public class MailingServiceRdb implements MailingService{
 
     @Override
     public MailingDto createReceiptAddressee(CreateReceiptAddresseeRequestDto mailingDto) {
-        List<Mailing> mailingList = mailingRepository.findAllByUuid(mailingDto.getUuid());
-        Long mailingId = 0L;
-        for(Mailing m : mailingList){
-            if(m.getId()>mailingId){
-                mailingId=m.getId();
-            }
-        }
-        var mailing = mailingRepository.findById(mailingId)
+        var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
                 );
@@ -162,6 +141,16 @@ public class MailingServiceRdb implements MailingService{
         } else {
             return null;
         }
+    }
 
+    public Long getLastMailingId(UUID uuid){
+        List<Mailing> mailingList = mailingRepository.findAllByUuid(uuid);
+        Long mailingId = 0L;
+        for(Mailing m : mailingList){
+            if(m.getId()>mailingId){
+                mailingId=m.getId();
+            }
+        }
+        return mailingId;
     }
 }
