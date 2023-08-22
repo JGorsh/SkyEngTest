@@ -17,7 +17,7 @@ public class MailingDto {
     private Long id;
     private UUID uuid;
     private MailType mailType;
-    private Integer mailIndex;
+    private Integer mailIndexRecipient;
     private String recipientName;
     private String recipientAddress;
     private MailingStatus mailingStatus;

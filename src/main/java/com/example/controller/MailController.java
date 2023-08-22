@@ -1,9 +1,6 @@
 package com.example.controller;
 
-import com.example.model.domain.Mailing;
-import com.example.model.dto.CreateMailingRequestDto;
-import com.example.model.dto.MailingDto;
-import com.example.model.dto.UpdateMailingRequestDto;
+import com.example.model.dto.*;
 import com.example.service.MailingService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -25,18 +22,18 @@ public class MailController implements MailApi {
     }
 
     @Override
-    public MailingDto updateArrivalMail(UpdateMailingRequestDto mailing) {
-        return null;
+    public MailingDto createArrivalMail(@RequestBody @Valid CreateArrivalMailingRequestDto mailing) {
+        return mailingService.createArrivalMail(mailing);
     }
 
     @Override
-    public MailingDto updateDepartureMail(UpdateMailingRequestDto  mailing) {
-        return null;
+    public MailingDto createDepartureMail(@RequestBody @Valid CreateDepartureMailRequestDto mailing) {
+        return mailingService.createDepartureMailing(mailing);
     }
 
     @Override
-    public MailingDto updateReceivingMail(UpdateMailingRequestDto  mailing) {
-        return null;
+    public MailingDto createReceivingMail(CreateReceiptAddresseeRequestDto mailing) {
+        return mailingService.createReceiptAddressee(mailing);
     }
 
     @Override

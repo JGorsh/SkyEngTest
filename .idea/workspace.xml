@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateDepartureMailRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateReceiptAddresseeRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/errors/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/errors/BusinessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/MailingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mapping/MailingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/MailingStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOffice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOfficeName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/domain/PostOfficeName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateMailingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateMailingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/MailingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/MailingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/dto/UpdateMailingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/dto/CreateArrivalMailingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/MailingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/MailingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,34 +51,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "LombokPluginIS_LOMBOK_JPS_FIX_ENABLED": "true",
-    "LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "last_opened_file_path": "/home/gorsh/IdeaProjects/SkyEngTest/target/generated-sources/annotations",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41954023",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications"
+    "last_opened_file_path": "/home/gorsh/IdeaProjects/SkyEngTest/src/main/resources"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/target/generated-sources/annotations" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/db" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="SkyEng" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.example.SkyEngTestApplication" />
+    <configuration name="SkyEngTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="SkyEngTest" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SkyEngTestApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,64 +129,12 @@
       <option name="project" value="LOCAL" />
       <updated>1692354532892</updated>
     </task>
-    <task id="LOCAL-00006" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692357813403</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1692357813403</updated>
-    </task>
-    <task id="LOCAL-00007" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692611894561</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1692611894561</updated>
-    </task>
-    <task id="LOCAL-00008" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692616880231</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1692616880231</updated>
-    </task>
-    <task id="LOCAL-00009" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692617988407</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1692617988407</updated>
-    </task>
-    <task id="LOCAL-00010" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692620074444</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1692620074444</updated>
-    </task>
-    <task id="LOCAL-00011" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1692620574824</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1692620574824</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="refactor" />
     <option name="LAST_COMMIT_MESSAGE" value="refactor" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

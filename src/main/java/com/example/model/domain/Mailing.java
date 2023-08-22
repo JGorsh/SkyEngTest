@@ -1,11 +1,8 @@
 package com.example.model.domain;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -25,7 +22,7 @@ public class Mailing {
 
     @Enumerated(EnumType.STRING)
     private MailType mailType;
-    private Integer mailIndex;
+    private Integer mailIndexRecipient;
     private String recipientName;
     private String recipientAddress;
 

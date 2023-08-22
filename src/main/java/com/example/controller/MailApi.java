@@ -1,9 +1,6 @@
 package com.example.controller;
 
-import com.example.model.domain.Mailing;
-import com.example.model.dto.CreateMailingRequestDto;
-import com.example.model.dto.MailingDto;
-import com.example.model.dto.UpdateMailingRequestDto;
+import com.example.model.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +15,13 @@ public interface MailApi {
 
 
     @PutMapping("arrival")
-    MailingDto updateArrivalMail(UpdateMailingRequestDto mailing);
+    MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailing);
 
     @PutMapping("departure")
-    MailingDto updateDepartureMail(UpdateMailingRequestDto  mailing);
+    MailingDto createDepartureMail(CreateDepartureMailRequestDto mailing);
 
     @PutMapping("receiving")
-    MailingDto updateReceivingMail(UpdateMailingRequestDto mailing);
+    MailingDto createReceivingMail(CreateReceiptAddresseeRequestDto mailing);
 
     @GetMapping("status")
     MailingDto getStatus (UUID uuid);
