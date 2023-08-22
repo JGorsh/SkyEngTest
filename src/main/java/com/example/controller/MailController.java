@@ -32,13 +32,13 @@ public class MailController implements MailApi {
     }
 
     @Override
-    public MailingDto createReceivingMail(CreateReceiptAddresseeRequestDto mailing) {
+    public MailingDto createReceivingMail(@RequestBody @Valid CreateReceiptAddresseeRequestDto mailing) {
         return mailingService.createReceiptAddressee(mailing);
     }
 
     @Override
     public MailingDto getStatus(UUID uuid) {
-        return null;
+        return mailingService.getOne(uuid);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class PostOffice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer mailIndex;
+    private Integer postOfficeIndex;
     @Enumerated(EnumType.STRING)
     private PostOfficeName postOfficeName;
     private String recipientAddress;

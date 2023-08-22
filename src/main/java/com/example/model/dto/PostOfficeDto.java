@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class PostOfficeDto {
     private Long id;
-    private Integer mailIndex;
+    private Integer postOfficeIndex;
     private PostOfficeName postOfficeName;
     private String recipientAddress;
 }

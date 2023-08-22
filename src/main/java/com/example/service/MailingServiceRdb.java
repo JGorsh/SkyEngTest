@@ -1,6 +1,5 @@
 package com.example.service;
 
-import com.example.errors.BusinessException;
 import com.example.mapping.MailingMapper;
 import com.example.model.domain.Mailing;
 import com.example.model.domain.MailingStatus;
@@ -9,11 +8,13 @@ import com.example.repository.MailingRepository;
 import com.example.repository.PostOfficeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -23,7 +24,7 @@ public class MailingServiceRdb implements MailingService{
     private final MailingRepository mailingRepository;
     private final MailingMapper mapper;
     private static final String POST_OFFICE_NOT_FOUND =  "Post office with id %s not found!";
-    private static final String MAILING_NOT_FOUND = "Mailing with id %s not found!";
+    private static final String MAILING_NOT_FOUND = "Mailing with uuid %s not found!";
     private static final String INCORRECT_POST_OFFICE = "Invalid post office address entered";
 
     @Override
@@ -68,17 +69,22 @@ public class MailingServiceRdb implements MailingService{
     }
 
     @Override
-    public Page<MailingDto> getAllMailing(Integer page, Integer size) {
-    //    return mailingRepository.findAll(PageRequest.of(page, size)).map(mapper::fromEntity);
-        return null;
+    public Page<MailingDto> getAllMailing(UUID uuid, Integer page, Integer size) {
+        return mailingRepository.findAllByUuid(uuid, PageRequest.of(page, size)).map(mapper::fromEntity);
     }
 
     @Override
-    public MailingDto getOne(Long id) {
-//        return mailingRepository.findById(id)
-//                .map(mapper::fromEntity)
-//                .orElseThrow(() -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, id)));
-        return null;
+    public MailingDto getOne(UUID uuid) {
+        List<Mailing> mailingList = mailingRepository.findAllByUuid(uuid);
+        Long mailingId = 0L;
+        for(Mailing m : mailingList){
+            if(m.getId()>mailingId){
+                mailingId=m.getId();
+            }
+        }
+        return mailingRepository.findById(mailingId)
+                .map(mapper::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, uuid.toString())));
     }
 
     @Override
@@ -99,16 +105,19 @@ public class MailingServiceRdb implements MailingService{
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        if(mailingDto.getPostOffice().getId()==mailing.getId()){
+        if(mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId())){
             var mail = mapper.dtoFromEntity(mailing);
             mail.setPostOffice(postOffice);
-            mail.setMailingStatus(MailingStatus.RECEIVED_BY_POST_OFFICE);
+            if(mail.getMailIndexRecipient().equals(mail.getPostOffice().getPostOfficeIndex())){
+                mail.setMailingStatus(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE);
+            } else {
+                mail.setMailingStatus(MailingStatus.RECEIVED_BY_POST_OFFICE);
+            }
             mail.setReceivedTime(Instant.now());
             mailing = mapper.toEntity(mail);
             mailingRepository.save(mailing);
             return mapper.fromEntity(mailing);
         } else {
-            new BusinessException(INCORRECT_POST_OFFICE);
             return null;
         }
     }
@@ -132,11 +141,17 @@ public class MailingServiceRdb implements MailingService{
                                 mailingDto.getPostOffice().getId())
                         ));
         var mail = mapper.dtoFromEntity(mailing);
-        mail.setPostOffice(postOffice);
-        mail.setMailingStatus(MailingStatus.DELIVERED_TO_THE_ADRESSEE);
-        mail.setReceivedTime(Instant.now());
-        mailing = mapper.toEntity(mail);
-        mailingRepository.save(mailing);
-        return mapper.fromEntity(mailing);
+
+        if(mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE)){
+            mail.setPostOffice(postOffice);
+            mail.setMailingStatus(MailingStatus.DELIVERED_TO_THE_ADDRESSEE);
+            mail.setReceivedTime(Instant.now());
+            mailing = mapper.toEntity(mail);
+            mailingRepository.save(mailing);
+            return mapper.fromEntity(mailing);
+        } else {
+            return null;
+        }
+
     }
 }

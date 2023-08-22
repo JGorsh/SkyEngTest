@@ -26,7 +26,7 @@ public interface MailApi {
     @GetMapping("status")
     MailingDto getStatus (UUID uuid);
 
-    @GetMapping("comments")
+    @GetMapping("full")
     Page<MailingDto> getAllMailingByUUID(@RequestParam(required = false) UUID uuid,
             @RequestParam(required = false, defaultValue = "0") Integer page,
             @RequestParam(required = false, defaultValue = "10") Integer size);
