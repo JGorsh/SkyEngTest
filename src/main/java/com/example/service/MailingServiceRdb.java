@@ -18,12 +18,12 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @Service
-public class MailingServiceRdb implements MailingService{
+public class MailingServiceRdb implements MailingService {
 
     private final PostOfficeRepository postOfficeRepository;
     private final MailingRepository mailingRepository;
     private final MailingMapper mapper;
-    private static final String POST_OFFICE_NOT_FOUND =  "Post office with id %s not found!";
+    private static final String POST_OFFICE_NOT_FOUND = "Post office with id %s not found!";
     private static final String MAILING_NOT_FOUND = "Mailing with uuid %s not found!";
 
     private static final String INCORRECT_POST_OFFICE = "Invalid post office address entered";
@@ -54,8 +54,8 @@ public class MailingServiceRdb implements MailingService{
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        if(mailing.getMailingStatus().equals(MailingStatus.REGISTRATION) ||
-                mailing.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE)){
+        if (mailing.getMailingStatus().equals(MailingStatus.REGISTRATION) ||
+                mailing.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE)) {
             var mail = mapper.dtoFromEntity(mailing);
             mail.setPostOffice(postOffice);
             mail.setMailingStatus(MailingStatus.SENT_BY_POST_OFFICE);
@@ -78,9 +78,9 @@ public class MailingServiceRdb implements MailingService{
     public MailingDto getOne(UUID uuid) {
         List<Mailing> mailingList = mailingRepository.findAllByUuid(uuid);
         Long mailingId = 0L;
-        for(Mailing m : mailingList){
-            if(m.getId()>mailingId){
-                mailingId=m.getId();
+        for (Mailing m : mailingList) {
+            if (m.getId() > mailingId) {
+                mailingId = m.getId();
             }
         }
         return mailingRepository.findById(mailingId)
@@ -99,11 +99,12 @@ public class MailingServiceRdb implements MailingService{
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        if(mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId()) &&
-                mailing.getMailingStatus().equals(MailingStatus.SENT_BY_POST_OFFICE)){
+        //inversion
+        if (mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId()) &&
+                mailing.getMailingStatus().equals(MailingStatus.SENT_BY_POST_OFFICE)) {
             var mail = mapper.dtoFromEntity(mailing);
             mail.setPostOffice(postOffice);
-            if(mail.getMailIndexRecipient().equals(mail.getPostOffice().getPostOfficeIndex())){
+            if (mail.getMailIndexRecipient().equals(mail.getPostOffice().getPostOfficeIndex())) {
                 mail.setMailingStatus(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE);
             } else {
                 mail.setMailingStatus(MailingStatus.RECEIVED_BY_POST_OFFICE);
@@ -130,8 +131,8 @@ public class MailingServiceRdb implements MailingService{
                         ));
         var mail = mapper.dtoFromEntity(mailing);
 
-        if(mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE) &&
-        mailing.getPostOffice().getId().equals(mailingDto.getPostOffice().getId())){
+        if (mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE) &&
+                mailing.getPostOffice().getId().equals(mailingDto.getPostOffice().getId())) {
             mail.setPostOffice(postOffice);
             mail.setMailingStatus(MailingStatus.DELIVERED_TO_THE_ADDRESSEE);
             mail.setReceivedTime(Instant.now());
@@ -143,12 +144,12 @@ public class MailingServiceRdb implements MailingService{
         }
     }
 
-    public Long getLastMailingId(UUID uuid){
+    public Long getLastMailingId(UUID uuid) {
         List<Mailing> mailingList = mailingRepository.findAllByUuid(uuid);
         Long mailingId = 0L;
-        for(Mailing m : mailingList){
-            if(m.getId()>mailingId){
-                mailingId=m.getId();
+        for (Mailing m : mailingList) {
+            if (m.getId() > mailingId) {
+                mailingId = m.getId();
             }
         }
         return mailingId;
