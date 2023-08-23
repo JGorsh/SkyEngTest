@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import com.example.errors.IncorrectDataException;
 import com.example.model.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,10 +17,10 @@ public interface MailingService {
     MailingDto getOne(UUID uuid);
     MailingDto createMailing(CreateMailingRequestDto mailing);
 
-    MailingDto createDepartureMailing(CreateDepartureMailRequestDto mailing);
+    MailingDto createDepartureMailing(CreateDepartureMailRequestDto mailing) throws IncorrectDataException;
 
-    MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailing);
+    MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailing) throws IncorrectDataException;
 
-    MailingDto createReceiptAddressee(CreateReceiptAddresseeRequestDto mailing);
+    MailingDto createReceiptAddressee(CreateReceiptAddresseeRequestDto mailing) throws IncorrectDataException;
 
 }

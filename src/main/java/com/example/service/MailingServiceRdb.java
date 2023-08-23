@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.errors.IncorrectDataException;
 import com.example.mapping.MailingMapper;
 import com.example.model.domain.Mailing;
 import com.example.model.domain.MailingStatus;
@@ -25,8 +26,11 @@ public class MailingServiceRdb implements MailingService {
     private final MailingMapper mapper;
     private static final String POST_OFFICE_NOT_FOUND = "Post office with id %s not found!";
     private static final String MAILING_NOT_FOUND = "Mailing with uuid %s not found!";
-
-    private static final String INCORRECT_POST_OFFICE = "Invalid post office address entered";
+    private static final String INCORRECT_MAILING_STATUS_DEPARTURE = "Mailing status is %s. Must be " + MailingStatus.REGISTRATION
+            + " or " + MailingStatus.RECEIVED_BY_POST_OFFICE;
+    private static final String INCORRECT_MAILING_STATUS_RECEIPT= "Mailing status is %s. Must be " + MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE;
+    private static final String INCORRECT_MAILING_STATUS_ARRIVAL = "Mailing status is %s. Must be " + MailingStatus.SENT_BY_POST_OFFICE
+            + " or incorrect office id = %s";
 
     @Override
     public MailingDto createMailing(CreateMailingRequestDto mailingDto) {
@@ -44,7 +48,7 @@ public class MailingServiceRdb implements MailingService {
     }
 
     @Override
-    public MailingDto createDepartureMailing(CreateDepartureMailRequestDto mailingDto) {
+    public MailingDto createDepartureMailing(CreateDepartureMailRequestDto mailingDto) throws IncorrectDataException {
         var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
@@ -55,7 +59,8 @@ public class MailingServiceRdb implements MailingService {
                                 mailingDto.getPostOffice().getId())
                         ));
         if (mailing.getMailingStatus().equals(MailingStatus.REGISTRATION) ||
-                mailing.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE)) {
+                mailing.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE) &&
+        !mailing.getPostOffice().getId().equals(mailingDto.getPostOffice().getId())) {
             var mail = mapper.dtoFromEntity(mailing);
             mail.setPostOffice(postOffice);
             mail.setMailingStatus(MailingStatus.SENT_BY_POST_OFFICE);
@@ -64,9 +69,8 @@ public class MailingServiceRdb implements MailingService {
             mailingRepository.save(mailing);
             return mapper.fromEntity(mailing);
         } else {
-            return null;
+            throw new IncorrectDataException(String.format(INCORRECT_MAILING_STATUS_DEPARTURE, mailing.getMailingStatus()));
         }
-
     }
 
     @Override
@@ -76,20 +80,13 @@ public class MailingServiceRdb implements MailingService {
 
     @Override
     public MailingDto getOne(UUID uuid) {
-        List<Mailing> mailingList = mailingRepository.findAllByUuid(uuid);
-        Long mailingId = 0L;
-        for (Mailing m : mailingList) {
-            if (m.getId() > mailingId) {
-                mailingId = m.getId();
-            }
-        }
-        return mailingRepository.findById(mailingId)
+        return mailingRepository.findById(getLastMailingId(uuid))
                 .map(mapper::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, uuid.toString())));
     }
 
     @Override
-    public MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailingDto) {
+    public MailingDto createArrivalMail(CreateArrivalMailingRequestDto mailingDto) throws IncorrectDataException {
         var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
@@ -99,7 +96,6 @@ public class MailingServiceRdb implements MailingService {
                         () -> new EntityNotFoundException(String.format(POST_OFFICE_NOT_FOUND,
                                 mailingDto.getPostOffice().getId())
                         ));
-        //inversion
         if (mailingDto.getPostOffice().getId().equals(mailing.getPostOffice().getId()) &&
                 mailing.getMailingStatus().equals(MailingStatus.SENT_BY_POST_OFFICE)) {
             var mail = mapper.dtoFromEntity(mailing);
@@ -114,12 +110,13 @@ public class MailingServiceRdb implements MailingService {
             mailingRepository.save(mailing);
             return mapper.fromEntity(mailing);
         } else {
-            return null;
+            throw new IncorrectDataException(String.format(INCORRECT_MAILING_STATUS_ARRIVAL, mailing.getMailingStatus(),
+                    mailingDto.getPostOffice().getId()));
         }
     }
 
     @Override
-    public MailingDto createReceiptAddressee(CreateReceiptAddresseeRequestDto mailingDto) {
+    public MailingDto createReceiptAddressee(CreateReceiptAddresseeRequestDto mailingDto) throws IncorrectDataException {
         var mailing = mailingRepository.findById(getLastMailingId(mailingDto.getUuid()))
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(MAILING_NOT_FOUND, mailingDto.getUuid()))
@@ -140,7 +137,7 @@ public class MailingServiceRdb implements MailingService {
             mailingRepository.save(mailing);
             return mapper.fromEntity(mailing);
         } else {
-            return null;
+            throw new IncorrectDataException(String.format(INCORRECT_MAILING_STATUS_RECEIPT, mailing.getMailingStatus()));
         }
     }
 

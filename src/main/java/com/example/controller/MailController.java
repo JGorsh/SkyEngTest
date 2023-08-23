@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.errors.IncorrectDataException;
 import com.example.model.dto.*;
 import com.example.service.MailingService;
 import lombok.AllArgsConstructor;
@@ -23,17 +24,17 @@ public class MailController implements MailApi {
     }
 
     @Override
-    public MailingDto createArrivalMail(@RequestBody @Valid CreateArrivalMailingRequestDto mailing) {
+    public MailingDto createArrivalMail(@RequestBody @Valid CreateArrivalMailingRequestDto mailing) throws IncorrectDataException {
         return mailingService.createArrivalMail(mailing);
     }
 
     @Override
-    public MailingDto createDepartureMail(@RequestBody @Valid CreateDepartureMailRequestDto mailing) {
+    public MailingDto createDepartureMail(@RequestBody @Valid CreateDepartureMailRequestDto mailing) throws IncorrectDataException {
         return mailingService.createDepartureMailing(mailing);
     }
 
     @Override
-    public MailingDto createReceivingMail(@RequestBody @Valid CreateReceiptAddresseeRequestDto mailing) {
+    public MailingDto createReceivingMail(@RequestBody @Valid CreateReceiptAddresseeRequestDto mailing) throws IncorrectDataException {
         return mailingService.createReceiptAddressee(mailing);
     }
 

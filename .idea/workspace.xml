@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="add func">
+    <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/errors/IncorrectDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/advice/MailControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/advice/MailControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/MailingServiceRdb.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +32,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectId" id="2U3qrREIsKCQn7BAX8xiKwZBpNv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,32 +40,34 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;LombokPluginIS_LOMBOK_JPS_FIX_ENABLED&quot;: &quot;true&quot;,
+    &quot;LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/JavaProject/SkyEngTest&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;2a1c1db615e3ba160a1ffe7ab3767fb4&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/gorsh/IdeaProjects/SkyEngTest/target/generated-sources/annotations&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41954023&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target/generated-sources/annotations" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="SkyEngTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="SkyEng" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.SkyEngTestApplication" />
       <module name="SkyEngTest" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SkyEngTestApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -75,8 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692178809597</updated>
-      <workItem from="1692700371166" duration="62000" />
-      <workItem from="1692700572886" duration="12222000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -118,62 +122,64 @@
       <option name="project" value="LOCAL" />
       <updated>1692354532892</updated>
     </task>
-    <task id="LOCAL-00006" summary="add func">
-      <created>1692699780514</created>
+    <task id="LOCAL-00006" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692357813403</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1692699780514</updated>
+      <updated>1692357813403</updated>
     </task>
-    <task id="LOCAL-00007" summary="add func">
-      <created>1692708146272</created>
+    <task id="LOCAL-00007" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692611894561</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1692708146272</updated>
+      <updated>1692611894561</updated>
     </task>
-    <task id="LOCAL-00008" summary="add func">
-      <created>1692709122253</created>
+    <task id="LOCAL-00008" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692616880231</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1692709122253</updated>
+      <updated>1692616880231</updated>
     </task>
-    <task id="LOCAL-00009" summary="add func">
-      <created>1692712033513</created>
+    <task id="LOCAL-00009" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692617988407</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1692712033513</updated>
+      <updated>1692617988407</updated>
     </task>
-    <task id="LOCAL-00010" summary="add func">
-      <created>1692712309147</created>
+    <task id="LOCAL-00010" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692620074444</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1692712309147</updated>
+      <updated>1692620074444</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1692620574824</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1692620574824</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="refactor" />
-    <MESSAGE value="add func" />
-    <option name="LAST_COMMIT_MESSAGE" value="add func" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

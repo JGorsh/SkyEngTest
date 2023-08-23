@@ -27,5 +27,4 @@ public class MailControllerAdvice {
         log.error(ex.getMessage(), ex);
         return new ResponseError(HttpStatus.NOT_FOUND.name(), Integer.toString(HttpStatus.NOT_FOUND.value()), ex.getMessage());
     }
-
 }
