@@ -5,18 +5,20 @@ spring:
     init:
       mode: always
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/skyeng
-    password: postgres
-    username: postgres
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/sk
+    username: sa
+    password: sa
+
   jpa:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2
 #  liquibase:
 #    change-log: classpath:db/changelog/master.xml
 
