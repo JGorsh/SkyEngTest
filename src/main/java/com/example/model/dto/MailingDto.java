@@ -30,4 +30,5 @@ public class MailingDto {
     private Instant receivedTime;
 
     private PostOffice postOffice;
+
 }

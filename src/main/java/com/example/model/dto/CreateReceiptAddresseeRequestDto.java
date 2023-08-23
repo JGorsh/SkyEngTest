@@ -12,8 +12,6 @@ public class CreateReceiptAddresseeRequestDto {
     @NotNull
     private UUID uuid;
     @NotNull
-    private Integer mailIndexRecipient;
-    @NotNull
     private String recipientName;
     @NotNull
     private String recipientAddress;

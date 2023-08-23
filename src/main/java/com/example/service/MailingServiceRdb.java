@@ -129,6 +129,8 @@ public class MailingServiceRdb implements MailingService {
         var mail = mapper.dtoFromEntity(mailing);
 
         if (mail.getMailingStatus().equals(MailingStatus.RECEIVED_BY_POST_OFFICE_TO_THE_ADDRESSEE) &&
+                mailing.getRecipientName().equals(mailingDto.getRecipientName())&&
+                mailing.getRecipientAddress().equals(mailingDto.getRecipientAddress())&&
                 mailing.getPostOffice().getId().equals(mailingDto.getPostOffice().getId())) {
             mail.setPostOffice(postOffice);
             mail.setMailingStatus(MailingStatus.DELIVERED_TO_THE_ADDRESSEE);
