@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.errors.IncorrectDataException;
 import com.example.model.dto.*;
 import com.example.service.MailingService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

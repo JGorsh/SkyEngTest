@@ -7,11 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.persistence.EntityNotFoundException;
 
 @Slf4j
 @RestControllerAdvice
+@ApiIgnore
 public class MailControllerAdvice {
 
     @ExceptionHandler({BusinessException.class})
