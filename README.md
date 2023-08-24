@@ -1,8 +1,8 @@
-Тестовое задание Skyeng (Горшков Алексей)
+#Тестовое задание Skyeng (Горшков Алексей)
 
-Swagger Api Documentation - api-documentation (1).pdf
+Swagger Api Documentation- api-documentation (1).pdf
 
-База данных использовалась Н2 с параметрами (также используется data.sql скрипт для заполнения таблицы PostOffice 
+#База данных использовалась Н2 с параметрами (также используется data.sql скрипт для заполнения таблицы PostOffice 
 для проверки работы API):
 
 datasource:
@@ -20,11 +20,13 @@ console:
 enabled: true
 path: /h2
 
-Запросы и эталонные JSON:
+#Запросы и эталонные JSON:
 
 Регистрация нового почтового отправления
+ВНИМАНИЕ!(При регестрации сгенерируется UUID в Response, его нужно будет использовать в последующих запросах для работы с этой посылкой)
+POST
 ```
-POST /mailing/registration
+/mailing/registration
 ```
 ```
 {
@@ -37,32 +39,63 @@ POST /mailing/registration
 }
 }
 ```
-
 Убытие почтового отправления из отделения
+ВНИМАНИЕ!(Используйте #UUID из ответа при регистрации!)
+PUT
 ```
-PUT /mailing/departure
+/mailing/departure
 ```
-
+```
+{
+    "uuid":"???????????",
+    "postOffice": {
+        "id": 1
+    }
+}
+```
 Прибытие почтового отправления в отделение
+ВНИМАНИЕ!(Используйте #UUID из ответа при регистрации!)
+PUT
 ```
-PUT /mailing/arrival
+/mailing/arrival
 ```
-
+```
+{
+    "uuid":"???????????",
+    "postOffice": {
+        "id": 1
+    }
+}
+```
 Получение отправления получателем
+ВНИМАНИЕ!(Используйте #UUID из ответа при регистрации!)
+PUT
 ```
-PUT /mailing/receiving
+/mailing/receiving
+```
+```
+{
+    "uuid":"???????????",
+    "mailIndexRecipient":"460000",
+    "recipientName":"Alex",
+    "recipientAddress":"Moscow",
+    "postOffice": {
+        "id": 1
+    }
+}
 ```
 
 Просмотр полной истории движения почтового отправления
+GET
 ```
-GET /mailing/full
+/mailing/full?uuid={UUID}
 ```
 
 Просмотр статуса почтового отправления
+GET
 ```
-GET /mailing/status
+/mailing/status?uuid={UUID}
 ```
-
 
 Схема данных
 Выделено 2 сущности по заданию - Почтовое отправление и Почтовое отделение:
