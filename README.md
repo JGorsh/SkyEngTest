@@ -117,10 +117,8 @@ path: /h2
 
 ![Схема данных](https://github.com/JGorsh/SkyEngTest/blob/3c819f7b2f11a9ef0aab8f86f8f82334f9390ac6/Screenshot%202023-08-24%20094511.png)
 
-Покрытие тестами
-Реализованы позитивные и негативные автотесты. Покрытие - 85%. Непокрытыми остались конфиги, main и т.д. Весь функционал по заданию покрыт
-
-## Отчёт JaCoCo
+## Покрытие тестами
+![](https://github.com/JGorsh/SkyEngTest/blob/d6c8eac625815228dbee7dae64ff834a3aa5f7de/Tests.png)
 
 Деплой
 Приложение собрано в war-архив и запускается с помощью Apache Tomcat 10
