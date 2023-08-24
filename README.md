@@ -2,7 +2,7 @@
 
 [Swagger Api Documentation](https://github.com/JGorsh/SkyEngTest/blob/3c819f7b2f11a9ef0aab8f86f8f82334f9390ac6/api-documentation%20(1).pdf)
 
-## База данных использовалась Н2 с параметрами 
+## База данных использовалась Н2: 
 (также используется data.sql скрипт для заполнения таблицы PostOffice 
 для проверки работы API):
 ```
@@ -120,10 +120,10 @@ path: /h2
 ## Покрытие тестами
 ![](https://github.com/JGorsh/SkyEngTest/blob/d6c8eac625815228dbee7dae64ff834a3aa5f7de/Tests.png)
 
-Деплой
-Приложение собрано в war-архив и запускается с помощью Apache Tomcat 10
+## Приложение собрано в war-архив и запускается с помощью Apache Tomcat 10
+[WAR-АРХИВ-В-КОРНЕ-ПРОЕКТА](https://github.com/JGorsh/SkyEngTest/blob/2363e013aed8a7fb8fdb3c62cfd3643d91211b79/SkyEngTest.war)
 
-Apache Tomcat
+![](https://github.com/JGorsh/SkyEngTest/blob/2363e013aed8a7fb8fdb3c62cfd3643d91211b79/Tomcat.png)
 
 ## Технологии
 Стек: Spring
