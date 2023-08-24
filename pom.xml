@@ -119,7 +119,7 @@
   </pluginRepositories>
 
   <build>
-    <finalName>simple-bug</finalName>
+    <finalName>SkyEngTest</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
