@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dcc53d8-84aa-45f4-a9a1-f9e9267e54a4" name="Changes" comment="add test">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkyEngTest.war" beforeDir="false" afterPath="$PROJECT_DIR$/SkyEngTest.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SkyEngTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SkyEngTestApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +71,7 @@
       <recent name="com.example.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in SkyEngTest">
+  <component name="RunManager" selected="Application.SkyEng">
     <configuration name="SkyEng" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.SkyEngTestApplication" />
       <module name="SkyEngTest" />
@@ -241,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692790678389</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add test">
+      <option name="closed" value="true" />
+      <created>1692940943120</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692940943120</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

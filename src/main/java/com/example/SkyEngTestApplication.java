@@ -12,7 +12,8 @@ public class SkyEngTestApplication extends SpringBootServletInitializer {
         SpringApplication.run(SkyEngTestApplication.class, args);
     }
 
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(SkyEngTestApplication.class);
     }
 }
