@@ -124,7 +124,7 @@
   </pluginRepositories>
 
   <build>
-    <finalName>SkyEngTest</finalName>
+    <finalName>skyeng</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
